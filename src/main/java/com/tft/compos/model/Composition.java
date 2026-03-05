@@ -20,24 +20,51 @@ public class Composition {
         this.champions=champions;
         this.cantTrait=0;
     }
-    //GETTERS Y SETTERS
+    
+    public Composition(String name){
+        this.name=name;
+        this.champions = new ArrayList<>(); //Creo lista vacia --
+        this.cantTrait=0;
+    }
+    
+//GETTERS Y SETTERS
     
     public List<Champion> getChampions(){
         return this.champions;
     }
     
+    public String getName(){
+        return this.name;
+    }
+    
     //METODOS
     
     //Agregar campeon
-    public void addChampion(Champion c){
+    public boolean addChampion(Champion c){
+        for(Champion elem:champions){
+            if(elem.getName().equalsIgnoreCase(c.getName())){
+                System.out.println("El campeon " + c.getName() + " ya existe en la composicion");
+                return false;
+            }
+        }
+        
         champions.add(c);
-        System.err.println(c.getName() + " fue agregado a la composición.");
+        return true;
     }
     
+    
     //Remover campeon
-    public void removeChampion(Champion c){
-        champions.remove(c);
-        System.out.println(c.getName() + " fue eliminado de la composición."); 
+    public boolean removeChampion(String name){
+        for (int i=0 ; i<champions.size() ; i++){
+            //Uso get(i) para ver el campeon en esa pos, y pido su nombre para compararlo con el parametro
+            if(champions.get(i).getName().equalsIgnoreCase(name)){
+                champions.remove(i);
+                return true;
+            }
+        }
+        
+       
+        return false;
     }
     
     //Contar campeones de una compo
@@ -46,8 +73,13 @@ public class Composition {
     }
     
     //Ver si contiene un campeon
-    public boolean containsChampion(Champion c){
-        return champions.contains(c);
+    public boolean containsChampion(String name){
+        for(Champion c : champions){
+            if(c.getName().equalsIgnoreCase(name)){
+                return true;
+            }
+        }
+        return false;
     }
     
     //Ver todos los campeones
@@ -66,6 +98,8 @@ public class Composition {
         }
         return traitsCount;
     }
+    
+    
 }
 
 

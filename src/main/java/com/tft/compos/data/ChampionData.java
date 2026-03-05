@@ -33,13 +33,13 @@ public class ChampionData {
     public static final Champion aphelios = new Champion("Aphelios", List.of(TraitData.targon), 2);
     public static final Champion ashe = new Champion("Ashe", List.of(TraitData.freljord,TraitData.quickstriker), 2);
     public static final Champion bardo = new Champion("Bardo", List.of(TraitData.caretaker), 2);
-    public static final Champion chogath = new Champion("Cho'gath", List.of(TraitData.voids,TraitData.juggernaut), 2);
+    public static final Champion chogath = new Champion("Chogath", List.of(TraitData.voids,TraitData.juggernaut), 2);
     public static final Champion ekko = new Champion("Ekko", List.of(TraitData.zaun,TraitData.disruptor), 2);
     public static final Champion graves = new Champion("Graves", List.of(TraitData.bilgeWater,TraitData.gunslinger), 2);
     public static final Champion neeko = new Champion("Neeko", List.of(TraitData.ixtal,TraitData.arcanist,TraitData.defender), 2);
     public static final Champion orianna = new Champion("Orianna", List.of(TraitData.piltover,TraitData.invoker), 2);
     public static final Champion poppy = new Champion("Poppy", List.of(TraitData.demacia,TraitData.yordle,TraitData.defender), 2);
-    public static final Champion reksai = new Champion("Rek'Sai", List.of(TraitData.voids,TraitData.vanquisher), 2);
+    public static final Champion reksai = new Champion("RekSai", List.of(TraitData.voids,TraitData.vanquisher), 2);
     public static final Champion sion = new Champion("Sion", List.of(TraitData.noxus,TraitData.bruiser), 2);
     public static final Champion teemo = new Champion("Teemo", List.of(TraitData.yordle,TraitData.longshot), 2);
     public static final Champion tristana = new Champion("Tristana", List.of(TraitData.yordle,TraitData.gunslinger), 2);
@@ -72,13 +72,13 @@ public class ChampionData {
     
     //CAMPEONES COSTE 4
     public static final Champion ambessa = new Champion("Ambessa", List.of(TraitData.noxus,TraitData.vanquisher), 4);
-    public static final Champion belVeth = new Champion("Bel'Veth", List.of(TraitData.voids,TraitData.slayer), 4);
+    public static final Champion belVeth = new Champion("BelVeth", List.of(TraitData.voids,TraitData.slayer), 4);
     public static final Champion braum = new Champion("Braum", List.of(TraitData.freljord,TraitData.warden), 4);
     public static final Champion diana = new Champion("Diana", List.of(TraitData.targon), 4);
     public static final Champion fizz = new Champion("Fizz", List.of(TraitData.bilgeWater,TraitData.yordle), 4);
     public static final Champion garen = new Champion("Garen", List.of(TraitData.demacia,TraitData.defender), 4);
     public static final Champion heraldo = new Champion("Heraldo de la grieta", List.of(TraitData.voids,TraitData.bruiser), 4);
-    public static final Champion kaisa = new Champion("Kai'Sa", List.of(TraitData.assimilator,TraitData.voids,TraitData.longshot), 4);
+    public static final Champion kaisa = new Champion("KaiSa", List.of(TraitData.assimilator,TraitData.voids,TraitData.longshot), 4);
     public static final Champion kalista = new Champion("Kalista", List.of(TraitData.shadowIsles,TraitData.vanquisher), 4);
     public static final Champion lissandra = new Champion("Lissandra", List.of(TraitData.freljord,TraitData.invoker), 4);
     public static final Champion lux = new Champion("Lux", List.of(TraitData.demacia,TraitData.arcanist), 4);
@@ -110,7 +110,7 @@ public class ChampionData {
     public static final Champion ornn = new Champion("Ornn", List.of(TraitData.blackSmith,TraitData.warden), 5);
     public static final Champion sett = new Champion("Sett", List.of(TraitData.ionia,TraitData.theBoss),5);
     public static final Champion shyvana = new Champion("Shyvana", List.of(TraitData.dragonborn,TraitData.juggernaut), 5);
-    public static final Champion tHex = new Champion("T-Hex", List.of(TraitData.hexMech,TraitData.piltover,TraitData.gunslinger), 5);
+    public static final Champion tHex = new Champion("THex", List.of(TraitData.hexMech,TraitData.piltover,TraitData.gunslinger), 5);
     public static final Champion tahmKench = new Champion("Tahm Kench", List.of(TraitData.bilgeWater,TraitData.glutton,TraitData.bruiser), 5);
     public static final Champion thresh = new Champion("Thresh", List.of(TraitData.shadowIsles,TraitData.warden), 5);
     public static final Champion volibear = new Champion("Volibear", List.of(TraitData.freljord,TraitData.bruiser), 5);
@@ -129,5 +129,23 @@ public class ChampionData {
     
     //CAMPEONES COSTE 11
     public static final Champion tibbers = new Champion("Tibbers", List.of(TraitData.arcanist), 11) ;
+    
+    //Metodos
+    
+    //Ver todos los campeones
+    public static List<Champion> getAllChampions(){
+        return List.of(anivia,blitzcrank,briar,caitlyn,illaoi,jarvanIV,jhin,kogmaw,lulu,qiyana,rumble,shen,sona,viego,aphelios,ashe,bardo,chogath,ekko,graves,neeko,orianna,poppy,reksai,sion,teemo,tristana,tryndamere,twistedFate,vi,xinZhao,yasuo,yorick,ahri,darius,drMundo,draven,gangplank,gwen,jinx,kennen,kobukoYuumi,leblanc,leona,loris,malzahar,millio,nautilus,sejuani,vayne,zoe,ambessa,belVeth,braum,diana,fizz,garen,heraldo,kaisa,kalista,lissandra,lux,missFortune,nasus,nidalee,renekton,seraphine,singed,skarner,swain,taric,veigar,warwick,wukong,yone,yunara,aatrox,annie,azir,fiddlesticks,galio,kindred,lucianSenna,mel,ornn,sett,shyvana,tHex,tahmKench,thresh,volibear,xerath,ziggs,zilean,aurelionSol,baronNashor,brock,ryze,sylas,zaahen,tibbers);
+    }
+    
+    //Encontrar un campeon por nombre (por si no existe o ingresa mal el usuario)
+    public static Champion findByName(String name){
+        for(Champion elem:getAllChampions()){
+            if(elem.getName().equalsIgnoreCase(name)) return elem; //ignoro mayus o minus
+        }
+        return null; //si no encontro el nombre retorno null
+    }
+    
+    
+
  
 }
