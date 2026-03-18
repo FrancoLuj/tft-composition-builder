@@ -84,8 +84,12 @@ public class Composition {
     
     //Ver todos los campeones
     public void seeAllChamp(){
-        System.out.println("Campeones de la composición: ");
-        for(Champion c:champions) System.out.println(c.getName() + ",");
+        if(champions.isEmpty()) System.out.println("No hay campeones cargados en la composicion");
+        else{
+           System.out.println("Campeones de la composición: ");
+        for(Champion c:champions) System.out.print(c.getName() + " | "); 
+        }
+        
     }
     
     //Ver cantidad de sinergias de una compo
