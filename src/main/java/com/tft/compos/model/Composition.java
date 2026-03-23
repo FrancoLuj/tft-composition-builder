@@ -86,8 +86,9 @@ public class Composition {
     public void seeAllChamp(){
         if(champions.isEmpty()) System.out.println("No hay campeones cargados en la composicion");
         else{
-           System.out.println("Campeones de la composición: ");
-        for(Champion c:champions) System.out.print(c.getName() + " | "); 
+           System.out.println("Campeones de la composición " + getName() + ": ");
+           for(Champion c:champions) System.out.print(c.getName() + " | "); 
+            System.out.println();
         }
         
     }

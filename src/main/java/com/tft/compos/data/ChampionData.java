@@ -21,7 +21,7 @@ public class ChampionData {
     public static final Champion illaoi = new Champion("Illaoi", List.of(TraitData.bilgeWater,TraitData.bruiser), 1);
     public static final Champion jarvanIV =new Champion("Jarvan IV", List.of(TraitData.demacia,TraitData.defender), 1);
     public static final Champion jhin = new Champion("Jhin", List.of(TraitData.ionia,TraitData.gunslinger), 1);
-    public static final Champion kogmaw = new Champion("Kog'Maw", List.of(TraitData.voids,TraitData.arcanist,TraitData.longshot), 1);
+    public static final Champion kogmaw = new Champion("KogMaw", List.of(TraitData.voids,TraitData.arcanist,TraitData.longshot), 1);
     public static final Champion lulu = new Champion("Lulu", List.of(TraitData.yordle,TraitData.arcanist), 1);
     public static final Champion qiyana = new Champion("Qiyana", List.of(TraitData.ixtal,TraitData.slayer), 1);
     public static final Champion rumble = new Champion("Rumble", List.of(TraitData.yordle,TraitData.defender), 1);

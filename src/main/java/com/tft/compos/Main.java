@@ -108,24 +108,23 @@ public class Main {
                     
                     //Sino, muestro las disponibles
                     System.out.print("Composiciones disponibles: ");
-                    for(Composition elem:compos) System.out.println(elem.getName() + " | ");
-                    
+                    for(Composition elem:compos) System.out.print(elem.getName() + " | ");
                     System.out.println();
                     
-                    System.out.print("Ingrese nombre de la composicion a la que desea agregar campeon/es: ");
-                    String compoNameAdd = sc.nextLine();
                     
-                    Composition chosenCom3 = searchCompo(compos, compoNameAdd);
+                    Composition chosenCom3 = null;
+                    while(chosenCom3 ==null ){
+                                               
+                        System.out.print("Ingrese nombre de la composicion a la que desea agregar campeon/es: ");
+                        String compoNameAdd = sc.nextLine();
                     
-                    while(true){
-                        if(chosenCom3 == null) {
-                            System.out.print("La composicion ingresada no existe. Ingrese un nombre valido: ");
-                            compoNameAdd = sc.nextLine();
-                            chosenCom3 = searchCompo(compos, compoNameAdd);
-                        }
+                        chosenCom3 = searchCompo(compos, compoNameAdd);
                         
-                        else break;
-                    }    
+                        if(chosenCom3 == null) System.out.println("La composicion ingresada no existe.");
+                    }
+                    
+                    //Muestro los campeones de la comp elegida
+                    chosenCom3.seeAllChamp();
                     
                     String op3 = "si";
                     while(op3.equalsIgnoreCase("si")){
@@ -164,38 +163,47 @@ public class Main {
 
                     //Sino, muestro composiciones disponibles
                     System.out.println("Composiciones disponibles: ");
-                    for(Composition elem:compos) System.out.println(elem.getName() + " | ");
+                    for(Composition elem:compos) System.out.print(elem.getName() + " | ");
+                    System.out.println();
                     
-                    //Pido que se ingrese el nombre de la compo elegida
-                    System.out.print("Ingrese el nombre de la composicion de la que desea eliminar un campeon: ");
-                    String compoNameRemove = sc.nextLine();
+                    Composition chosenCom4 = null;
+                    while(chosenCom4 == null){
+                        
+                        
+                        //Pido que se ingrese el nombre de la compo elegida
+                        System.out.print("Ingrese el nombre de la composicion de la que desea eliminar un campeon: ");
+                        String compoNameRemove = sc.nextLine();
+                        
+                        //Chequeo si el nombre de la composicion existe
+                        chosenCom4 = searchCompo(compos, compoNameRemove);
+                        
+                        if (chosenCom4 == null) System.out.println("La composicion " + compoNameRemove + " no existe");
+                        
+                    }
                     
-                    //Chequeo si el nombre de la composicion existe
-                    Composition chosenComp = searchCompo(compos, compoNameRemove);
+                    //Muestro los campeones de la comp elegida
+                    chosenCom4.seeAllChamp();
                     
-                    
-                    if (chosenComp == null) System.out.println("La composicion " + compoNameRemove + " no existe");
-                    else{
-                        chosenComp.seeAllChamp();
-                        String op4 = "si";
-                            while(op4.equalsIgnoreCase("si")){
-                              //Pido el nombre del campeon a eliminar
-                                System.out.print("Ingrese el nombre del campeon que desea eliminar: ");
-                                String chRemove = sc.nextLine();
+                    //Bucle para eliminar campeones
+                    String op4 = "si";
+                    while(op4.equalsIgnoreCase("si")){
+                        //Pido el nombre del campeon a eliminar
+                        System.out.print("Ingrese el nombre del campeon que desea eliminar: ");
+                        String chRemove = sc.nextLine();
                                 
-                                //creo una variable boolean y le asigno la composicion con el metodo remover y de parametro
-                                //lo que escribio el usuario, si me devuelve true es porque hubo coincidencia
-                                //si es false es porque no existia el campeon en la composicion
-                                boolean deleted = chosenComp.removeChampion(chRemove);
+                        //creo una variable boolean y le asigno la composicion con el metodo remover y de parametro
+                        //lo que escribio el usuario, si me devuelve true es porque hubo coincidencia
+                        //si es false es porque no existia el campeon en la composicion
+                        boolean deleted = chosenCom4.removeChampion(chRemove);
                                 
-                                if(deleted == true) System.out.println(chRemove +" fue eliminado de la composicion");
-                                else System.out.println(chRemove + " no se encontraba en la composicion!");
+                        if(deleted == true) System.out.println(chRemove +" fue eliminado de la composicion");
+                        else System.out.println(chRemove + " no se encontraba en la composicion!");
                                 
                                 
-                                //Consulto si quiero eliminar otro campeon
-                                System.out.print("Desea eliminar otro campeon? si/no: ");
-                                op4 = sc.nextLine();
-                            }
+                        //Consulto si quiero eliminar otro campeon
+                        System.out.print("Desea eliminar otro campeon? si/no: ");
+                        op4 = sc.nextLine();
+                        
                     }
                                     
                     break;
@@ -207,29 +215,35 @@ public class Main {
                         break;
                     }
                     
+                    //Muestro compos disponibles
                     System.out.println("Composiciones disponibles: ");
-                    for (Composition elem : compos) System.out.println(elem.getName()+ " | ");
+                    for (Composition elem : compos) System.out.print(elem.getName()+ " | ");
+                    System.out.println();
                     
-                    System.out.print("Elija una composicion para buscar un campeon: ");
-                    String compoSearch = sc.nextLine();
+                    Composition chosenCom5 = null;
+                    while (chosenCom5 == null) {
+                        System.out.print("Elija una composicion para buscar un campeon: ");
+                        String compoSearch = sc.nextLine();
                     
-                    Composition chosenCom5 = searchCompo(compos, compoSearch);
+                        chosenCom5 = searchCompo(compos, compoSearch);
                     
-                    if(chosenCom5 == null) System.out.println("La composicion ingresada no existe");
-                    else{
-                        String op5 = "si";
-                        while(op5.equalsIgnoreCase("si")){
-                            System.out.print("Ingrese el nombre del campeon que quiere buscar: ");
-                            String chSearch = sc.nextLine();
-                            
-                            if(chosenCom5.containsChampion(chSearch) == true) System.out.println(chSearch + " esta en la composicion!");
-                            else System.out.println(chSearch + " NO esta en la composicion");
-                            
-                            System.out.print("Desea buscar otro campeon? si/no: ");
-                            op5 = sc.nextLine();
-                        }
+                        if(chosenCom5 == null) System.out.println("La composicion ingresada no existe");
                         
                     }
+                    
+                    String op5 = "si";
+                    while(op5.equalsIgnoreCase("si")){
+                        System.out.print("Ingrese el nombre del campeon que quiere buscar: ");
+                        String chSearch = sc.nextLine();
+                            
+                        if(chosenCom5.containsChampion(chSearch) == true) System.out.println(chSearch + " esta en la composicion!");
+                        else System.out.println(chSearch + " NO esta en la composicion");
+                            
+                        System.out.print("Desea buscar otro campeon? si/no: ");
+                        op5 = sc.nextLine();
+                    }
+                        
+                    
                     break;
                     
                 
@@ -240,19 +254,23 @@ public class Main {
                         break;
                     }
                     
+                    //Muestro composiciones disponibles
                     System.out.println("Composiciones disponibles: ");
-                    for(Composition elem: compos) System.out.println(elem.getName() + " | ");
+                    for(Composition elem: compos) System.out.print(elem.getName() + " | ");
+                    System.out.println();
                     
-                    System.out.print("Ingrese el nombre de la composicion para ver sus sinergias: ");
-                    String compoTraits = sc.nextLine();
+                    Composition chosenCom6 = null;
+                    while(chosenCom6 == null ){
+                        System.out.print("Ingrese el nombre de la composicion para ver sus sinergias: ");
+                        String compoTraits = sc.nextLine();
                     
-                    Composition chosenCom6 = searchCompo(compos, compoTraits);
-                    
-                    if(chosenCom6 == null) System.out.println("La composicion ingresada no existe!");
-                    else{
-                        System.out.println("Sinergias activas: ");
-                        System.out.println(chosenCom6.compTraits());
+                        chosenCom6 = searchCompo(compos, compoTraits);
+                        if(chosenCom6 == null) System.out.println("La composicion ingresada no existe!");
                     }
+                    
+                    System.out.println(chosenCom6.compTraits()); 
+                    
+                    
                     
                     
                     System.out.print("Presione ENTER para volver al menu principal");
